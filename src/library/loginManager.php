@@ -12,7 +12,7 @@ function login($data)
             $pass = $_POST["pass"];
 
             if ($user['email'] == $email && password_verify($pass, $user['password'])) {
-
+                $_SESSION['user'] = $user['name'];
                 header('Location: ../dashboard.php');
             }
         }

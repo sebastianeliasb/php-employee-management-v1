@@ -1,4 +1,13 @@
 <!-- TODO Main view or Employees Grid View here is where you get when logged here there's the grid of employees -->
+
+<?php
+session_start();
+
+if (!isset($_SESSION['user'])) {
+    header('Location: ../index.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +20,7 @@
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../assets/css/main.css">
 
-    <title>Document</title>
+    <title>Employee list</title>
 </head>
 
 <body>
@@ -19,6 +28,7 @@
         <?php
         require_once("../assets/html/header.html");
         //Table title init
+        echo "</header>";
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
@@ -64,3 +74,7 @@
             </table>
             </div>";
         ?>
+
+</body>
+
+</html>

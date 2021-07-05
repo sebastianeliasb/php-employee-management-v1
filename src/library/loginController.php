@@ -19,3 +19,4 @@ else {
     $_SESSION["loginError"] = "Wrong email or password";
     header("Location: ../errorpage.php");
 }
+

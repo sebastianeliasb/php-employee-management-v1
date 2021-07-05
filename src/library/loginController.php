@@ -6,7 +6,7 @@ $pass = $_POST["pass"];
 
 
 
-$emailDb = "sebastian.eliasb@gmail.com";
+$emailDb = "admin@admin.com";
 $passDb = "12345";
 
 $passDbHash = password_hash($passDb,PASSWORD_DEFAULT);

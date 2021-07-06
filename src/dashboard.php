@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
 }
@@ -32,14 +33,15 @@ if (!isset($_SESSION['user'])) {
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
-            <table class='fl-table'>
+            <table class='fl-table info-row'>
                 <thead>
                     <tr>
-                        <th>NAME</th>
-                        <th>LAST NAME</th>
-                        <th>AGE</th>
-                        <th>EMAIL</th>
-                        <th>PHONE NUMBER</th>
+                        <th class='employee-info'>NAME</th>
+                        <th class='employee-info'>LAST NAME</th>
+                        <th class='employee-info'>AGE</th>
+                        <th class='employee-info'>EMAIL</th>
+                        <th class='employee-info'>PHONE NUMBER</th>
+                        <th class='new-employee'>+</th>
                     </tr>
                 </thead>
             <tbody>";
@@ -61,7 +63,7 @@ if (!isset($_SESSION['user'])) {
                 $email =  $employee_data["email"];
                 $phoneNumber = $employee_data["phoneNumber"];
 
-                echo "<tr>";
+                echo "<tr >";
                 echo " <td>" . $name . "</td>";
                 echo " <td>" . $lastName . "</td>";
                 echo " <td>" . $age . "</td>";
@@ -70,11 +72,10 @@ if (!isset($_SESSION['user'])) {
                 echo "</tr>";
             }
         );
-        echo   "<tbody>
+        echo   "</tbody>
             </table>
             </div>";
         ?>
-
 </body>
-
+<script src="../assets/js/index.js"></script>
 </html>

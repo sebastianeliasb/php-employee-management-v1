@@ -65,6 +65,9 @@ h2 {
   font-size: 20px;
   cursor: pointer;
 }
+.new-employee:hover {
+  color: chartreuse;
+}
 
 /* Responsive */
 

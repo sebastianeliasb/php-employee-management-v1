@@ -60,6 +60,8 @@ if (!isset($_SESSION['user'])) {
                 $age = $employee_data["age"];
                 $email =  $employee_data["email"];
                 $phoneNumber = $employee_data["phoneNumber"];
+                $id = $employee_data["id"];
+
 
                 echo "<tr>";
                 echo " <td>" . $name . "</td>";
@@ -67,6 +69,9 @@ if (!isset($_SESSION['user'])) {
                 echo " <td>" . $age . "</td>";
                 echo " <td>" . $email . "</td>";
                 echo " <td>" . $phoneNumber . "</td>";
+                // echo "<td><a href='delete.php?' class='btn btn-am btn-outline-danger'>Delete</a></td>"; //Later i will insert trash icon.
+                echo "<td><a href='delete.php?<?= $id ?>' class='btn btn-am btn-outline-danger'>Delete</a></td>"; //Later i will insert trash icon.
+
                 echo "</tr>";
             }
         );
@@ -74,6 +79,13 @@ if (!isset($_SESSION['user'])) {
             </table>
             </div>";
         ?>
+        <script>
+            // $(document).ready(function() {
+            //     alert("Hello world !! document is ready");
+            // });
+        </script>
+
+        //Delete - recibir del server
 
 </body>
 

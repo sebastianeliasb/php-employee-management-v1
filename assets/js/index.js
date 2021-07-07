@@ -27,17 +27,9 @@ $("#new-employee-form").submit(function (e) {
     postData,
     function (response) {
       console.log(response);
-      $("#new-employee-form").trigger("reset");
+      // $("#new-employee-form").trigger("reset");
     }
   );
   e.preventDefault();
-  // employeeInfo.load(employeeInfo);
-});
-
-$.ajax({
-  url: "../src/library/employeeController.php",
-  type: "GET",
-  success: function (response) {
-    console.log(response);
-  },
+  infoRow.load("../src/dashboard.php .info-row");
 });

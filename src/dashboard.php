@@ -58,6 +58,7 @@ if (!isset($_SESSION['user'])) {
         array_walk(
             $json,
             function ($employee_data) {
+                // print_r($employee_data);
                 $id = $employee_data["id"];
                 $name =  $employee_data["name"]; // Access Array data
                 $lastName = $employee_data["lastName"];
@@ -65,12 +66,12 @@ if (!isset($_SESSION['user'])) {
                 $email =  $employee_data["email"];
                 $phoneNumber = $employee_data["phoneNumber"];
 
-                echo "<tr >";
-                echo " <td data-id=$id>" . $name . "</td>";
-                echo " <td data-id=$id>" . $lastName . "</td>";
-                echo " <td data-id=$id>" . $age . "</td>";
-                echo " <td data-id=$id>" . $email . "</td>";
-                echo " <td data-id=$id>" . $phoneNumber . "</td>";
+                echo "<tr>";
+                echo " <td data-id='$id'>" . $name . "</td>";
+                echo " <td data-id='$id'>" . $lastName . "</td>";
+                echo " <td data-id='$id'>" . $age . "</td>";
+                echo " <td data-id='$id'>" . $email . "</td>";
+                echo " <td data-id='$id'>" . $phoneNumber . "</td>";
                 echo "</tr>";
             }
         );

@@ -7,9 +7,38 @@
  * @date: 11/06/2020
  */
 
-function addEmployee(array $newEmployee)
+function getFormData($data)
 {
-    // TODO implement it
+    $formData =
+        [
+            'id' => (isset($_GET['id']) ? $_GET['id'] : count($data) + 1),
+            'name' => $_POST['name'],
+            'lastName' => $_POST['lastName'],
+            'email' => $_POST['email'],
+            'gender' => $_POST['gender'],
+            'city' => $_POST['city'],
+            'streetAddress' => $_POST['streetAddress'],
+            'state' => $_POST['state'],
+            'age' => $_POST['age'],
+            'postalCode' => $_POST['zip'],
+            'phoneNumber' => $_POST['phone'],
+        ];
+
+    return $formData;
+}
+
+function addEmployee($newEmployee, $data)
+{
+    $mergedList = array_merge($data, array($newEmployee));
+    $newList = json_encode($mergedList);
+
+    if ($data != null) {
+        $file = fopen('../../resources/employees.json', 'w');
+        fwrite($file, $newList);
+        fclose($file);
+    }
+
+    header("Location: ../dashboard.php");
 }
 
 
@@ -19,9 +48,8 @@ function deleteEmployee(string $id)
 }
 
 
-function updateEmployee($updateEmployee)
+function updateEmployee($updateEmployee, $data)
 {
-    $data = json_decode(file_get_contents('../../resources/employees.json'), true);
     foreach ($data as $emp) {
         if ($emp['id'] == $updateEmployee['id']) {
             $updatedEntry = array_merge($emp, $updateEmployee);
@@ -53,7 +81,6 @@ function removeAvatar($id)
 {
     // TODO implement it
 }
-
 
 /* function getQueryStringParameters(): array
 {

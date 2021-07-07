@@ -40,6 +40,7 @@ if (!isset($_SESSION['user'])) {
                         <th>AGE</th>
                         <th>EMAIL</th>
                         <th>PHONE NUMBER</th>
+                        <th></th>
                     </tr>
                 </thead>
             <tbody>";
@@ -63,11 +64,12 @@ if (!isset($_SESSION['user'])) {
                 $phoneNumber = $employee_data["phoneNumber"];
 
                 echo "<tr>";
-                echo " <td data-id='$id'>" . $name . "</td>";
-                echo " <td data-id='$id'>" . $lastName . "</td>";
-                echo " <td data-id='$id'>" . $age . "</td>";
-                echo " <td data-id='$id'>" . $email . "</td>";
-                echo " <td data-id='$id'>" . $phoneNumber . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $name . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $lastName . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $age . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $email . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $phoneNumber . "</td>";
+                echo " <td data-id='$id' class='modifyList btn'>Modify</td>";
                 echo "</tr>";
             }
         );

@@ -33,6 +33,7 @@ if (!isset($_SESSION['user'])) {
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
+        <form id='new-employee-form'>
             <table class='fl-table info-row'>
                 <thead>
                     <tr>
@@ -44,6 +45,7 @@ if (!isset($_SESSION['user'])) {
                         <th class='new-employee'>+</th>
                     </tr>
                 </thead>
+                </form>
             <tbody>";
 
         //Table title end
@@ -56,7 +58,7 @@ if (!isset($_SESSION['user'])) {
         array_walk(
             $json,
             function ($employee_data) {
-                // print_r($employee_data);
+                $id = $employee_data["id"];
                 $name =  $employee_data["name"]; // Access Array data
                 $lastName = $employee_data["lastName"];
                 $age = $employee_data["age"];
@@ -64,14 +66,15 @@ if (!isset($_SESSION['user'])) {
                 $phoneNumber = $employee_data["phoneNumber"];
 
                 echo "<tr >";
-                echo " <td>" . $name . "</td>";
-                echo " <td>" . $lastName . "</td>";
-                echo " <td>" . $age . "</td>";
-                echo " <td>" . $email . "</td>";
-                echo " <td>" . $phoneNumber . "</td>";
+                echo " <td data-id=$id>" . $name . "</td>";
+                echo " <td data-id=$id>" . $lastName . "</td>";
+                echo " <td data-id=$id>" . $age . "</td>";
+                echo " <td data-id=$id>" . $email . "</td>";
+                echo " <td data-id=$id>" . $phoneNumber . "</td>";
                 echo "</tr>";
             }
         );
+        
         echo   "</tbody>
             </table>
             </div>";

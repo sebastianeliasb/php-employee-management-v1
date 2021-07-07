@@ -10,7 +10,7 @@ $(addNewEmployee).on("click", function () {
 
 $("#new-employee-form").submit(function (e) {
   const postData = {
-    id: "",
+    id: $("tr").length - 1,
     name: $("#name").val(),
     lastName: $("#lastName").val(),
     email: $("#email").val(),
@@ -22,12 +22,12 @@ $("#new-employee-form").submit(function (e) {
     postalCode: "",
     phoneNumber: $("#phoneNumber").val(),
   };
+
   $.post(
     "../src/library/employeeController.php",
     postData,
     function (response) {
       console.log(response);
-      // $("#new-employee-form").trigger("reset");
     }
   );
   e.preventDefault();

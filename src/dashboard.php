@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
 }
@@ -32,17 +33,19 @@ if (!isset($_SESSION['user'])) {
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
-            <table class='fl-table'>
+        <form id='new-employee-form'>
+            <table class='fl-table info-row'>
                 <thead>
                     <tr>
-                        <th>NAME</th>
-                        <th>LAST NAME</th>
-                        <th>AGE</th>
-                        <th>EMAIL</th>
-                        <th>PHONE NUMBER</th>
-                        <th></th>
+                        <th class='employee-info'>NAME</th>
+                        <th class='employee-info'>LAST NAME</th>
+                        <th class='employee-info'>AGE</th>
+                        <th class='employee-info'>EMAIL</th>
+                        <th class='employee-info'>PHONE NUMBER</th>
+                        <th class='new-employee'>+</th>
                     </tr>
                 </thead>
+                </form>
             <tbody>";
 
         //Table title end
@@ -73,11 +76,12 @@ if (!isset($_SESSION['user'])) {
                 echo "</tr>";
             }
         );
-        echo   "<tbody>
+
+        echo   "</tbody>
             </table>
             </div>";
         ?>
-        <script src="../assets/js/index.js"></script>
 </body>
+<script src="../assets/js/index.js"></script>
 
 </html>

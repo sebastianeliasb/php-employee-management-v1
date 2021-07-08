@@ -5,7 +5,11 @@ const employeeInfo = $(".employee-info");
 // List -> New employee -> Show input fields
 $("body").on("click", ".new-employee", function () {
   $(".info-row").append(
+<<<<<<< HEAD
     "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td><input type='submit' name='new_submit' id='new_submit' value='+'></tr>"
+=======
+    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td class='btn_td'><input type='submit'class='new_submit' name='new_submit' value='+' ></tr>"
+>>>>>>> master
   );
 });
 
@@ -133,3 +137,18 @@ $("body").on("click", ".toForm", function (e) {
 $("#returnEmployees").on("click", () => {
   location.replace("../src/dashboard.php");
 });
+
+function checkUserTime() {
+  $.ajax({
+    url: "../src/library/loginController.php",
+    method: "post",
+    success: function (response) {
+      if (response == "Logout") {
+        window.location.href = "../src/library/sessionHelper.php";
+      }
+    },
+  });
+}
+setInterval(function () {
+  checkUserTime();
+}, 2000);

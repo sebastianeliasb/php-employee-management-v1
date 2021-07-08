@@ -18,7 +18,10 @@ if (!isset($_SESSION['user'])) {
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/employee.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
 
     <title>Employee list</title>
 </head>
@@ -42,7 +45,8 @@ if (!isset($_SESSION['user'])) {
 
     </header>
 
-    <h4>Employee</h4>
+    <h4 class='title-header'>Employee ( <?php  (isset($employee['name']) ?  print ($employee['name'] . " " . $employee['lastName']) : ""); ?>)</h4>
+   
 
     <form method="post" action="./library/employeeController.php<?php (isset($employee) ? print("?id=" . $_GET['id']) : ""); ?>" id="employeeForm" class="p-5">
         <div class="d-flex mt-3">
@@ -53,7 +57,7 @@ if (!isset($_SESSION['user'])) {
         </div>
 
         <div class="d-flex mt-3">
-            <label for="email" class="mr-2 employeeLabels">e-Mail Address</label>
+            <label for="email" class="mr-2 employeeLabels">Email Address</label>
             <input type="text" id="email" name="email" class="form-control" value="<?php (isset($employee) ? print($employee['email']) : print('')); ?>" required>
             <label for="gender" class="mx-2 employeeLabels">Gender</label>
             <select id="gender" name="gender" class="form-control" required>
@@ -87,12 +91,18 @@ if (!isset($_SESSION['user'])) {
             <label for="phone" class="mx-2 employeeLabels">Phone Number</label>
             <input type="text" id="phone" name="phone" class="form-control" value="<?php (isset($employee) ? print($employee['phoneNumber']) : print('')); ?>" required>
         </div>
-
-        <input type="submit" class="btn btn-primary mt-5" value="SUBMIT" id="submitEmployee" name="<?php (isset($_GET['id']) ? print('submitEmployee') : print('newEmployee')) ?>">
-        <button type="button" class="btn btn-secondary mt-5" id="returnEmployees">RETURN</button>
+        
+            <input type="submit" class="btn btn-primary mt-5" value="SUBMIT" id="submitEmployee" name="<?php (isset($_GET['id']) ? print('submitEmployee') : print('newEmployee')) ?>">
+            <button type="button" class="btn btn-secondary mt-5" id="returnEmployees">RETURN</button>
+        
     </form>
 
     <script src="../assets/js/index.js"></script>
+    <?php
+    require_once("../assets/html/footer.html");
+        //Table title init
+        echo "</footer>";
+        ?>
 </body>
 
 </html>

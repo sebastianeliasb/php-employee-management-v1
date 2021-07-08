@@ -22,6 +22,9 @@ if (!isset($_SESSION['user'])) {
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
 
     <title>Employee list</title>
 </head>
@@ -33,7 +36,7 @@ if (!isset($_SESSION['user'])) {
         //Table title init
         echo "</header>";
 
-        echo "<h4>Dashboard Employee</h4>
+        echo "<h4 class='title-header'>Dashboard Employee</h4>
         <div class='table-wrapper'>
         <form id='new-employee-form'>
             <table class='fl-table info-row'>
@@ -67,6 +70,8 @@ if (!isset($_SESSION['user'])) {
                 $age = $employee_data["age"];
                 $email =  $employee_data["email"];
                 $phoneNumber = $employee_data["phoneNumber"];
+                $id = $employee_data["id"];
+
 
                 echo "<tr>";
                 echo " <td data-id='$id' class='toForm' >" . $name . "</td>";
@@ -75,6 +80,7 @@ if (!isset($_SESSION['user'])) {
                 echo " <td data-id='$id' class='toForm' >" . $email . "</td>";
                 echo " <td data-id='$id' class='toForm' >" . $phoneNumber . "</td>";
                 echo " <td data-id='$id' class='modifyList btn'>Modify</td>";
+                echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
                 echo "</tr>";
             }
         );
@@ -83,6 +89,39 @@ if (!isset($_SESSION['user'])) {
             </table>
             </div>";
         ?>
+        <script>
+            $(".delete-employee").click(function() {
+
+                var row_id = $(this).data('id');
+                console.log(row_id)
+                $(this).closest('.row-employee-data').remove();
+
+                $.ajax({
+                    type: "POST",
+                    url: "../src/library/employeeController.php",
+                    data: {
+                        row_id: row_id
+                    },
+                    dataType: "html",
+                    async: true,
+                    success: function(data) {
+                        alert("all ok");
+                    },
+                    error: function() {
+                        alert("data not found");
+                    }
+                });
+
+
+            });
+        </script>
+        <footer>
+            <?php
+            require_once("../assets/html/footer.html");
+            //Table title init
+            echo "</footer>";
+            ?>
+
 </body>
 <script src="../assets/js/index.js"></script>
 

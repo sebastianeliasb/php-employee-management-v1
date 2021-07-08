@@ -44,7 +44,8 @@ function addEmployee($newEmployee, $data)
 
 function deleteEmployee(string $id)
 {
-    // TODO implement it
+    // EINAR
+    echo $_POST[row_id];
 }
 
 
@@ -85,10 +86,11 @@ function removeAvatar($id)
 /* function getQueryStringParameters(): array
 {
     // TODO implement it
+}
 } */
 
 /* function getNextIdentifier(array $employeesCollection): int
 {
-// TODO implement it
+    // TODO implement it
 }
  */

@@ -112,7 +112,12 @@ if (!isset($_SESSION['user'])) {
 
             });
         </script>
-
+        <footer>
+        <?php
+ require_once("../assets/html/footer.html");
+        //Table title init
+        echo "</footer>";
+        ?>
 
 </body>
 <script src="../assets/js/index.js"></script>

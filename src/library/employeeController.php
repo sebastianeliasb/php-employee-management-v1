@@ -29,6 +29,7 @@ if (isset($_POST['name'])) {
     }
     echo "Employee Added Successfully";
 }
+
 require_once './employeeManager.php';
 
 $data = json_decode(file_get_contents('../../resources/employees.json'), true);
@@ -46,15 +47,12 @@ if ($data != null && isset($_POST['newEmployee'])) {
 }
 
 
+switch ($_SERVER["REQUEST_METHOD"]) {
 
+    case "PUT":
 
-/* switch ($_SERVER["REQUEST_METHOD"]) {
-    case "GET":
-        $result;
-        print_r($data);
-        break;
+        $result = json_decode(file_get_contents("php://input"));
+        $resultArr = json_decode(json_encode($result), true);
 
-    case "POST":
-        $result;
+        updateEmployee($resultArr, $data);
 }
- */

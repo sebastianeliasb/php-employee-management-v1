@@ -50,8 +50,8 @@ if (!isset($_SESSION['user'])) {
 
     <form method="post" action="./library/employeeController.php<?php (isset($employee) ? print("?id=" . $_GET['id']) : ""); ?>" id="employeeForm" class="p-5">
         <div class="d-flex mt-3">
-            <label for="name" class="mr-2 employeeLabels">Name</label>
-            <input type="text" id="name" name="name" class="form-control" value="<?php (isset($employee) ? print($employee['name']) : print('')); ?>" required>
+            <label for="formName" class="mr-2 employeeLabels">Name</label>
+            <input type="text" id="formName" name="formName" class="form-control" value="<?php (isset($employee) ? print($employee['name']) : print('')); ?>" required>
             <label for="lastName" class="mx-2 employeeLabels">Last Name</label>
             <input type="text" id="lastName" name="lastName" class="form-control" value="<?php (isset($employee) ? print($employee['lastName']) : print('')); ?>" required>
         </div>
@@ -98,6 +98,11 @@ if (!isset($_SESSION['user'])) {
     </form>
 
     <script src="../assets/js/index.js"></script>
+    <?php
+    require_once("../assets/html/footer.html");
+        //Table title init
+        echo "</footer>";
+        ?>
 </body>
 
 </html>

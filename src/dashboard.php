@@ -3,6 +3,8 @@
 <?php
 session_start();
 
+header("Access-Control-Allow-Origin: *");
+
 
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
@@ -23,6 +25,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title>Employee list</title>
 </head>
@@ -48,7 +51,7 @@ if (!isset($_SESSION['user'])) {
                         <th class='new-employee'>+</th>
                     </tr>
                 </thead>
-                </form>
+                
             <tbody>";
 
         //Table title end
@@ -71,14 +74,16 @@ if (!isset($_SESSION['user'])) {
                 $id = $employee_data["id"];
 
 
-                echo "<tr class=row-employee-data>";
-                echo " <td data-id='$id' class='toForm'>" . $name . "</td>";
-                echo " <td data-id='$id' class='toForm'>" . $lastName . "</td>";
-                echo " <td data-id='$id' class='toForm'>" . $age . "</td>";
-                echo " <td data-id='$id' class='toForm'>" . $email . "</td>";
-                echo " <td data-id='$id' class='toForm'>" . $phoneNumber . "</td>";
-                echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
-                echo "</tr>";
+                echo "<tr>";
+                echo " <td data-id='$id' class='toForm' >" . $name . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $lastName . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $age . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $email . "</td>";
+                echo " <td data-id='$id' class='toForm' >" . $phoneNumber . "</td>";
+                echo " <td data-id='$id'>";
+                echo "<i class='far fa-edit modifyList' data-id='$id'></i>";
+                echo "<a href='#' id='delete-button' class='delete-employee ml-3 danger-link' data-id='$id'><i class='far fa-trash-alt'></i></a>"; //Later i will insert trash icon.
+                echo "</td></tr>";
             }
         );
 
@@ -112,7 +117,12 @@ if (!isset($_SESSION['user'])) {
 
             });
         </script>
-
+        <footer>
+            <?php
+            require_once("../assets/html/footer.html");
+            //Table title init
+            echo "</footer>";
+            ?>
 
 </body>
 <script src="../assets/js/index.js"></script>

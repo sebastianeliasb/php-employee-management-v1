@@ -5,6 +5,8 @@
   font-family: "Source Serif Pro", serif;
   font-weight: 600;
 }
+
+/* Employee form */
 label,
 input,
 select,
@@ -15,6 +17,8 @@ button {
 
 .title-header {
   margin-left: 50px;
-  margin-top: 50px;
+  margin-top: 25px;
   text-decoration: underline;
 }
+
+/* Employee form - END */

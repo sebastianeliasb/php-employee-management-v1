@@ -12,7 +12,7 @@ function getFormData($data)
     $formData =
         [
             'id' => (isset($_GET['id']) ? $_GET['id'] : count($data) + 1),
-            'name' => $_POST['name'],
+            'name' => $_POST['formName'],
             'lastName' => $_POST['lastName'],
             'email' => $_POST['email'],
             'gender' => $_POST['gender'],
@@ -44,8 +44,6 @@ function addEmployee($newEmployee, $data)
 
 function deleteEmployee(string $id)
 {
-    // EINAR
-    echo $_POST[row_id];
 }
 
 

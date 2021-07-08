@@ -24,6 +24,9 @@ h2 {
   margin-top: 50px;
   text-decoration: underline;
 }
+.nav-item {
+  list-style-type: none;
+}
 
 /* Table Styles */
 
@@ -115,10 +118,41 @@ td {
   color: white;
 }
 
+.delete-employee {
+  color: black;
+}
+
+.delete-employee:hover {
+  color: #c70000;
+}
+
 input[type="text"],
 input[type="number"] {
   max-width: 120px;
 }
+
+/* Personalized Scroll bar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #324960;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #202d3a;
+}
+/* Personalized Scroll bar - END */
 
 /* Responsive */
 
@@ -190,17 +224,3 @@ input[type="number"] {
 }
 
 /* Dashboard Table - END */
-
-/* Employee form */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.employeeLabels {
-  width: 400px;
-}
-
-/* Employee form - END */

@@ -4,7 +4,7 @@ const employeeInfo = $(".employee-info");
 
 $("body").on("click", ".new-employee", function () {
   $(".info-row").append(
-    "<tr><td><input type='text' name='name' id='name'></td><td><input type='text' name='lastName' id='lastName'></td><td><input type='number' name='age' id='age'></td><td><input type='text' name='email' id='email'></td><td><input type='number' name='phoneNumber' id='phoneNumber'></td><td><button type='submit' name='new_submit' >+</tr>"
+    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td><button type='submit' name='new_submit' >+</tr>"
   );
 });
 
@@ -27,7 +27,7 @@ $("body").on("submit", "#new-employee-form", function (e) {
     "../src/library/employeeController.php",
     postData,
     function (response) {
-      console.log("response");
+      console.log(response);
     }
   );
   e.preventDefault();

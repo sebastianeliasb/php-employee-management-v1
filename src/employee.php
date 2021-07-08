@@ -98,6 +98,11 @@ if (!isset($_SESSION['user'])) {
     </form>
 
     <script src="../assets/js/index.js"></script>
+    <?php
+    require_once("../assets/html/footer.html");
+        //Table title init
+        echo "</footer>";
+        ?>
 </body>
 
 </html>

@@ -130,6 +130,11 @@ input[type="text"],
 input[type="number"] {
   max-width: 120px;
 }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 /* Personalized Scroll bar */
 /* width */

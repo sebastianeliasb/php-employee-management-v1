@@ -56,3 +56,12 @@ switch ($_SERVER["REQUEST_METHOD"]) {
 
         updateEmployee($resultArr, $data);
 }
+
+switch ($_SERVER["REQUEST_METHOD"]) {
+
+    case "DELETE":
+
+        deleteEmployee($_REQUEST['row_id']);
+
+        break;
+}

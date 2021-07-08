@@ -94,7 +94,7 @@ if (!isset($_SESSION['user'])) {
         <script>
             $(".delete-employee").click(function(e) {
 
-                var row_id = $(e.target).data('id');
+                var row_id = $(e.target).parent().data('id');
                 console.log(row_id)
                 $(e.target).closest('.row-employee-data').remove();
 

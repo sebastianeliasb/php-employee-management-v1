@@ -42,45 +42,11 @@ function addEmployee($newEmployee, $data)
 }
 
 
-function deleteEmployee($id)
+function deleteEmployee(string $id)
 {
-    // Contains Original Json file
-    $getDataJson = file_get_contents('../../resources/employees.json');
-
-    // Converts original Json file into Array
-    $arrayEmployee = json_decode($getDataJson);
-
-    //print_r($arrayEmployee);
-
-    // Bring out data from the Array
-    foreach ($arrayEmployee as $id_delete) {
-        if ($id == $id_delete->id) {
-
-            $indice = array_search($id_delete, $arrayEmployee);
-            array_splice($arrayEmployee, $indice, 1, "");
-            echo "START HEREEEEEEE";
-            print("<pre>" . print_r($arrayEmployee, true) . "</pre>");
-
-            break;
-        } else {
-            echo "-->error here    ";
-        }
-    }
-    //read json file
-    $jsontoDelete = json_encode($arrayEmployee);
-
-    if ($arrayEmployee != null) {
-        $file = fopen('../../resources/employees.json', 'w');
-        fwrite($file, $jsontoDelete);
-        fclose($file);
-    }
-
-    // file_put_contents('../../resources/employees.json', $jsontoDelete);
-    echo "RESPONSE FINAL ------------------------------------------_>>>>>";
-    print("<pre>" . print_r($arrayEmployee, true) . "</pre>");
+    // EINAR
+    echo $_POST[row_id];
 }
-
-
 
 
 function updateEmployee($updateEmployee, $data)

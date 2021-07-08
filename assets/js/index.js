@@ -5,11 +5,7 @@ const employeeInfo = $(".employee-info");
 // List -> New employee -> Show input fields
 $("body").on("click", ".new-employee", function () {
   $(".info-row").append(
-<<<<<<< HEAD
-    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td><input type='submit' name='new_submit' id='new_submit' value='+'></tr>"
-=======
-    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td class='btn_td'><input type='submit'class='new_submit' name='new_submit' value='+' ></tr>"
->>>>>>> master
+    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td class='btn_td'><input type='submit' class='new_submit' name='new_submit' id='new_submit' value='+' ></tr>"
   );
 });
 
@@ -50,11 +46,11 @@ $("body").on("click", "#new_submit", function (e) {
 // List -> Editing employee -> Show inputs and their values
 $("body").on("click", ".modifyList", function (e) {
   const id = $(e.target).data("id");
-  let parentRow = $(e.target).parent();
+  let parentRow = $(e.target).parent().parent();
   let newContent =
-    "<td><input name='editingName' id='editingName' type='text required'></td> <td><input name='editingLastName' id='editingLastName' type='text' required></td><td><input name='editingAge' id='editingAge' type='text' required></td><td><input name='editingEmail' id='editingEmail' type='text' required></td><td><input name='editingPhoneNumber' id='editingPhoneNumber' type='text' required></td><td><input type='submit' id='editSubmit' name='editSubmit' data-id='" +
+    "<td><input name='editingName' id='editingName' type='text required'></td> <td><input name='editingLastName' id='editingLastName' type='text' required></td><td><input name='editingAge' id='editingAge' type='text' required></td><td><input name='editingEmail' id='editingEmail' type='text' required></td><td><input name='editingPhoneNumber' id='editingPhoneNumber' type='text' required></td><td class='btn_td'><input class='new_submit' type='submit' id='editSubmit' name='editSubmit' data-id='" +
     id +
-    "' value='Accept'></td>";
+    "' value='+'></td>";
 
   parentRow.html(newContent);
   let employeesRequest = $.ajax({
@@ -129,7 +125,7 @@ $("body").on("click", "#editSubmit", function (e) {
 });
 
 // List -> Open employee on form
-$("body").on("click", ".toForm", function (e) {
+$("body").on("dblclick", ".toForm", function (e) {
   location.replace("../src/employee.php?id=" + $(e.target).data("id"));
 });
 

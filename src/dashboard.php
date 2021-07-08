@@ -25,6 +25,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title>Employee list</title>
 </head>
@@ -79,9 +80,10 @@ if (!isset($_SESSION['user'])) {
                 echo " <td data-id='$id' class='toForm' >" . $age . "</td>";
                 echo " <td data-id='$id' class='toForm' >" . $email . "</td>";
                 echo " <td data-id='$id' class='toForm' >" . $phoneNumber . "</td>";
-                echo " <td data-id='$id' class='modifyList btn'>Modify</td>";
-                echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
-                echo "</tr>";
+                echo " <td data-id='$id'>";
+                echo "<i class='far fa-edit modifyList' data-id='$id'></i>";
+                echo "<a href='#' id='delete-button' class='delete-employee ml-3 danger-link' data-id='$id'><i class='far fa-trash-alt'></i></a>"; //Later i will insert trash icon.
+                echo "</td></tr>";
             }
         );
 

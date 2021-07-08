@@ -44,8 +44,6 @@ function addEmployee($newEmployee, $data)
 
 function deleteEmployee(string $id)
 {
-    // EINAR
-    echo $_POST[row_id];
 }
 
 

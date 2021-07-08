@@ -118,6 +118,14 @@ td {
   color: white;
 }
 
+.delete-employee {
+  color: black;
+}
+
+.delete-employee:hover {
+  color: #c70000;
+}
+
 input[type="text"],
 input[type="number"] {
   max-width: 120px;

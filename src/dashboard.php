@@ -3,6 +3,7 @@
 <?php
 session_start();
 
+
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
 }
@@ -19,6 +20,9 @@ if (!isset($_SESSION['user'])) {
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
 
     <title>Employee list</title>
 </head>
@@ -30,18 +34,21 @@ if (!isset($_SESSION['user'])) {
         //Table title init
         echo "</header>";
 
-        echo "<h4>Dashboard Employee</h4>
+        echo "<h4 class='title-header'>Dashboard Employee</h4>
         <div class='table-wrapper'>
-            <table class='fl-table'>
+        <form id='new-employee-form'>
+            <table class='fl-table info-row'>
                 <thead>
                     <tr>
-                        <th>NAME</th>
-                        <th>LAST NAME</th>
-                        <th>AGE</th>
-                        <th>EMAIL</th>
-                        <th>PHONE NUMBER</th>
+                        <th class='employee-info'>NAME</th>
+                        <th class='employee-info'>LAST NAME</th>
+                        <th class='employee-info'>AGE</th>
+                        <th class='employee-info'>EMAIL</th>
+                        <th class='employee-info'>PHONE NUMBER</th>
+                        <th class='new-employee'>+</th>
                     </tr>
                 </thead>
+                </form>
             <tbody>";
 
         //Table title end
@@ -55,6 +62,7 @@ if (!isset($_SESSION['user'])) {
             $json,
             function ($employee_data) {
                 // print_r($employee_data);
+                $id = $employee_data["id"];
                 $name =  $employee_data["name"]; // Access Array data
                 $lastName = $employee_data["lastName"];
                 $age = $employee_data["age"];
@@ -64,16 +72,17 @@ if (!isset($_SESSION['user'])) {
 
 
                 echo "<tr class=row-employee-data>";
-                echo " <td>" . $name . "</td>";
-                echo " <td>" . $lastName . "</td>";
-                echo " <td>" . $age . "</td>";
-                echo " <td>" . $email . "</td>";
-                echo " <td>" . $phoneNumber . "</td>";
+                echo " <td data-id='$id' class='toForm'>" . $name . "</td>";
+                echo " <td data-id='$id' class='toForm'>" . $lastName . "</td>";
+                echo " <td data-id='$id' class='toForm'>" . $age . "</td>";
+                echo " <td data-id='$id' class='toForm'>" . $email . "</td>";
+                echo " <td data-id='$id' class='toForm'>" . $phoneNumber . "</td>";
                 echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
                 echo "</tr>";
             }
         );
-        echo   "<tbody>
+
+        echo   "</tbody>
             </table>
             </div>";
         ?>
@@ -106,5 +115,6 @@ if (!isset($_SESSION['user'])) {
 
 
 </body>
+<script src="../assets/js/index.js"></script>
 
 </html>

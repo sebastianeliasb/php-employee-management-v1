@@ -4,6 +4,8 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  font-family: "Source Serif Pro", serif;
+  font-weight: 600;
 }
 body {
   font-family: Helvetica;
@@ -16,6 +18,11 @@ h2 {
   letter-spacing: 1px;
   color: white;
   padding: 30px 0;
+}
+.title-header {
+  margin-left: 75px;
+  margin-top: 50px;
+  text-decoration: underline;
 }
 
 /* Table Styles */
@@ -56,10 +63,61 @@ h2 {
 .fl-table thead th:nth-child(odd) {
   color: #ffffff;
   background: #324960;
+  cursor: pointer;
 }
 
 .fl-table tr:nth-child(even) {
   background: #f8f8f8;
+  cursor: pointer;
+}
+.fl-table tr:nth-child(odd) {
+  background: #ffffff;
+  cursor: pointer;
+}
+.fl-table tr:nth-child(even):hover {
+  background: #4fc3a1;
+}
+.fl-table tr:nth-child(odd):hover {
+  background: #4fc3a1;
+}
+td {
+  max-width: 35px;
+}
+.new-employee {
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  min-width: 15px;
+}
+
+.new-employee:hover {
+  color: chartreuse;
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.new_submit {
+  color: #4fc3a1;
+  border-radius: 25px;
+  text-decoration: none;
+  border: none;
+  font-size: 15px;
+  height: 20px;
+  width: 20px;
+}
+.new_submit:hover {
+  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+.btn_td {
+  max-width: 20px;
+}
+.btn_td:hover {
+  color: white;
+}
+
+input[type="text"],
+input[type="number"] {
+  max-width: 120px;
 }
 
 /* Responsive */

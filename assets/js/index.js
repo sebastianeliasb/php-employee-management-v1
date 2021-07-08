@@ -4,9 +4,11 @@ const employeeInfo = $(".employee-info");
 
 // List -> New employee -> Show input fields
 $("body").on("click", ".new-employee", function () {
-  $(".info-row").append(
-    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td class='btn_td'><input type='submit' class='new_submit' name='new_submit' id='new_submit' value='+' ></tr>"
-  );
+  if ($("input").length <= 0) {
+    $(".info-row").append(
+      "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td class='btn_td'><input type='submit' class='new_submit' name='new_submit' id='new_submit' value='+' ></tr>"
+    );
+  }
 });
 
 // List -> New employee -> Submit

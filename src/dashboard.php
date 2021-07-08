@@ -20,6 +20,9 @@ if (!isset($_SESSION['user'])) {
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
 
     <title>Employee list</title>
 </head>
@@ -31,7 +34,7 @@ if (!isset($_SESSION['user'])) {
         //Table title init
         echo "</header>";
 
-        echo "<h4>Dashboard Employee</h4>
+        echo "<h4 class='title-header'>Dashboard Employee</h4>
         <div class='table-wrapper'>
         <form id='new-employee-form'>
             <table class='fl-table info-row'>

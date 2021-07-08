@@ -3,6 +3,8 @@
 <?php
 session_start();
 
+header("Access-Control-Allow-Origin: *");
+
 
 if (!isset($_SESSION['user'])) {
     header('Location: ../index.php');
@@ -33,7 +35,7 @@ if (!isset($_SESSION['user'])) {
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
-        <form id='new-employee-form'>
+        <form id='new-employee-form' metho='post'>
             <table class='fl-table info-row'>
                 <thead>
                     <tr>
@@ -45,7 +47,7 @@ if (!isset($_SESSION['user'])) {
                         <th class='new-employee'>+</th>
                     </tr>
                 </thead>
-                </form>
+                
             <tbody>";
 
         //Table title end

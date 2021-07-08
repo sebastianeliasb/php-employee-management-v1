@@ -13,6 +13,7 @@ function login($data)
 
             if ($user['email'] == $email && password_verify($pass, $user['password'])) {
                 $_SESSION['user'] = $user['name'];
+                $_SESSION['user_login_time'] = time(); 
                 header('Location: ../dashboard.php');
             }
         }

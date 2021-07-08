@@ -48,3 +48,18 @@ $("body").on("click", ".toForm", function (e) {
 $("#returnEmployees").on("click", () => {
   location.replace("../src/dashboard.php");
 });
+
+function checkUserTime() {
+  $.ajax({
+    url: "../src/library/loginController.php",
+    method: "post",
+    success: function (response) {
+      if (response == "Logout") {
+        window.location.href = "../src/library/sessionHelper.php";
+      }
+    },
+  });
+}
+setInterval(function () {
+  checkUserTime();
+}, 2000);

@@ -74,7 +74,7 @@ if (!isset($_SESSION['user'])) {
                 $id = $employee_data["id"];
 
 
-                echo "<tr>";
+                echo "<tr class='row-employee-data'>";
                 echo " <td data-id='$id' class='toForm' >" . $name . "</td>";
                 echo " <td data-id='$id' class='toForm' >" . $lastName . "</td>";
                 echo " <td data-id='$id' class='toForm' >" . $age . "</td>";

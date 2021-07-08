@@ -77,7 +77,7 @@ if (!isset($_SESSION['user'])) {
                 echo " <td data-id='$id' class='toForm'>" . $age . "</td>";
                 echo " <td data-id='$id' class='toForm'>" . $email . "</td>";
                 echo " <td data-id='$id' class='toForm'>" . $phoneNumber . "</td>";
-                echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
+                echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='" . $id . "'>Delete</a></td>"; //Later i will insert trash icon.
                 echo "</tr>";
             }
         );
@@ -87,22 +87,19 @@ if (!isset($_SESSION['user'])) {
             </div>";
         ?>
         <script>
-            $(".delete-employee").click(function() {
+            $(".delete-employee").click(function(e) {
 
-                var row_id = $(this).data('id');
+                var row_id = $(e.target).data('id');
                 console.log(row_id)
-                $(this).closest('.row-employee-data').remove();
+                $(e.target).closest('.row-employee-data').remove();
 
                 $.ajax({
-                    type: "POST",
-                    url: "../src/library/employeeController.php",
-                    data: {
-                        row_id: row_id
-                    },
-                    dataType: "html",
+                    type: "DELETE",
+                    url: "../src/library/employeeController.php?row_id=" + row_id,
                     async: true,
                     success: function(data) {
                         alert("all ok");
+                        console.table(data);
                     },
                     error: function() {
                         alert("data not found");

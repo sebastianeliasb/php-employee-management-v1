@@ -47,14 +47,18 @@ if ($data != null && isset($_POST['newEmployee'])) {
 
 
 
+switch ($_SERVER["REQUEST_METHOD"]) {
+        // case "GET":
+        //     $result;
+        //     print_r($data);
+        //     break;
 
-/* switch ($_SERVER["REQUEST_METHOD"]) {
-    case "GET":
-        $result;
-        print_r($data);
+        // case "POST":
+        //     $result;
+    case "DELETE":
+        //if(isset($_REQUEST['row_id'])){
+        deleteEmployee($_REQUEST['row_id']);
+
+        //}
         break;
-
-    case "POST":
-        $result;
 }
- */

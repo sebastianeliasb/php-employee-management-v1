@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])) {
 
         echo "<h4>Dashboard Employee</h4>
         <div class='table-wrapper'>
-        <form id='new-employee-form' metho='post'>
+        <form id='new-employee-form'>
             <table class='fl-table info-row'>
                 <thead>
                     <tr>

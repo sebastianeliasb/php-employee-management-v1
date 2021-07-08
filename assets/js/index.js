@@ -2,14 +2,14 @@ const infoRow = $(".info-row");
 const addNewEmployee = $(".new-employee");
 const employeeInfo = $(".employee-info");
 
-// Inputs for the new employee on list form
+// List -> New employee -> Show input fields
 $("body").on("click", ".new-employee", function () {
   $(".info-row").append(
-    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td><button type='submit' name='new_submit' id='new_submit' >+</tr>"
+    "<tr><td><input type='text' name='name' id='name' required></td><td><input type='text' name='lastName' id='lastName' required></td><td><input type='number' name='age' id='age' required></td><td><input type='text' name='email' id='email' required></td><td><input type='number' name='phoneNumber' id='phoneNumber' required></td><td><input type='submit' name='new_submit' id='new_submit' value='+'></tr>"
   );
 });
 
-// New employee on list submit
+// List -> New employee -> Submit
 $("body").on("click", "#new_submit", function (e) {
   const postData = {
     id: $("tr").length - 1,
@@ -43,7 +43,7 @@ $("body").on("click", "#new_submit", function (e) {
   });
 });
 
-// Inputs and their values for editing list item
+// List -> Editing employee -> Show inputs and their values
 $("body").on("click", ".modifyList", function (e) {
   const id = $(e.target).data("id");
   let parentRow = $(e.target).parent();
@@ -73,7 +73,7 @@ $("body").on("click", ".modifyList", function (e) {
   });
 });
 
-// Editing list item submit
+// List -> Editing employees -> Submit
 $("body").on("click", "#editSubmit", function (e) {
   let employeesRequest = $.ajax({
     type: "GET",
@@ -112,8 +112,6 @@ $("body").on("click", "#editSubmit", function (e) {
     data: JSON.stringify(employeeData),
   });
 
-  /* e.preventDefault(); */
-
   employeesEdit.done(function (daata, status) {
     let employeesRequest = $.ajax({
       type: "GET",
@@ -126,10 +124,12 @@ $("body").on("click", "#editSubmit", function (e) {
   });
 });
 
+// List -> Open employee on form
 $("body").on("click", ".toForm", function (e) {
   location.replace("../src/employee.php?id=" + $(e.target).data("id"));
 });
 
+// Form -> Return to dashboard
 $("#returnEmployees").on("click", () => {
   location.replace("../src/dashboard.php");
 });

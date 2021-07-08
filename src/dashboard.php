@@ -64,16 +64,12 @@ if (!isset($_SESSION['user'])) {
 
 
                 echo "<tr class=row-employee-data>";
-                echo " <td>" . $id . "</td>";
                 echo " <td>" . $name . "</td>";
                 echo " <td>" . $lastName . "</td>";
                 echo " <td>" . $age . "</td>";
                 echo " <td>" . $email . "</td>";
                 echo " <td>" . $phoneNumber . "</td>";
-                // echo "<td><a href='delete.php?' class='btn btn-am btn-outline-danger'>Delete</a></td>"; //Later i will insert trash icon.
-                /* echo "<td><a href='delete.php?<?= $id ?>' id='delete-button' class='btn btn-am btn-outline-danger delete-employee'>Delete</a></td>";*/ //Later i will insert trash icon.
                 echo "<td><a href='#' id='delete-button' class='btn btn-am btn-outline-danger delete-employee' data-id='<?= $id ?>'>Delete</a></td>"; //Later i will insert trash icon.
-
                 echo "</tr>";
             }
         );
@@ -90,8 +86,10 @@ if (!isset($_SESSION['user'])) {
 
                 $.ajax({
                     type: "POST",
-                    url: "employeeManager.php",
-                    data: "row_id",
+                    url: "../src/library/employeeController.php",
+                    data: {
+                        row_id: row_id
+                    },
                     dataType: "html",
                     async: true,
                     success: function(data) {

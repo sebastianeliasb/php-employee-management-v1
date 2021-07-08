@@ -16,13 +16,7 @@ function addEmployee(array $newEmployee)
 function deleteEmployee(string $id)
 {
     // EINAR
-    console.log("deleteEmployee INNsir")
-
-echo $_POST[row_id];
-
-
-
-
+    echo $_POST[row_id];
 }
 
 

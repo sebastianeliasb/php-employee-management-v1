@@ -63,14 +63,14 @@ if (!isset($_SESSION['user'])) {
                 $id = $employee_data["id"];
 
 
-                echo "<tr>";
+                echo "<tr class=>";
                 echo " <td>" . $name . "</td>";
                 echo " <td>" . $lastName . "</td>";
                 echo " <td>" . $age . "</td>";
                 echo " <td>" . $email . "</td>";
                 echo " <td>" . $phoneNumber . "</td>";
                 // echo "<td><a href='delete.php?' class='btn btn-am btn-outline-danger'>Delete</a></td>"; //Later i will insert trash icon.
-                echo "<td><a href='delete.php?<?= $id ?>' class='btn btn-am btn-outline-danger'>Delete</a></td>"; //Later i will insert trash icon.
+                echo "<td><a href='delete.php?<?= $id ?>' id='delete-button' class='btn btn-am btn-outline-danger delete-employee'>Delete</a></td>"; //Later i will insert trash icon.
 
                 echo "</tr>";
             }
@@ -80,12 +80,20 @@ if (!isset($_SESSION['user'])) {
             </div>";
         ?>
         <script>
-            // $(document).ready(function() {
-            //     alert("Hello world !! document is ready");
-            // });
+            $(".delete-employee").click(function() {
+
+                $(this).closest('.row-employee-data').remove();
+
+
+                // $('#delete-button').parents('.row-employee-data') {
+                //     alert("Handler for .click() called.");
+
+                // };
+
+
+            });
         </script>
 
-        //Delete - recibir del server
 
 </body>
 

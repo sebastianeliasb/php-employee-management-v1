@@ -123,6 +123,29 @@ input[type="number"] {
   max-width: 120px;
 }
 
+/* Personalized Scroll bar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #324960;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #202d3a;
+}
+/* Personalized Scroll bar - END */
+
 /* Responsive */
 
 @media (max-width: 767px) {
@@ -193,17 +216,3 @@ input[type="number"] {
 }
 
 /* Dashboard Table - END */
-
-/* Employee form */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.employeeLabels {
-  width: 400px;
-}
-
-/* Employee form - END */

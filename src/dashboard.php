@@ -27,7 +27,7 @@ if (!isset($_SESSION['user'])) {
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <title>Employee list</title>
+    <title>Employee Dashboard</title>
 </head>
 
 <body>
@@ -37,7 +37,7 @@ if (!isset($_SESSION['user'])) {
         //Table title init
         echo "</header>";
 
-        echo "<h4 class='title-header'>Dashboard Employee</h4>
+        echo "<h4 class='title-header'>Employee Dashboard</h4>
         <div class='table-wrapper'>
         <form id='new-employee-form'>
             <table class='fl-table info-row'>

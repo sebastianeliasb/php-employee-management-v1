@@ -92,7 +92,7 @@ if (!isset($_SESSION['user'])) {
             </div>";
         ?>
         <script>
-            $(".delete-employee").click(function(e) {
+            $("body").on("click", ".delete-employee", function(e) {
 
                 var row_id = $(e.target).parent().data('id');
                 console.log(row_id)

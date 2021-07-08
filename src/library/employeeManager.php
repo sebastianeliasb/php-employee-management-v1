@@ -57,7 +57,7 @@ function deleteEmployee($id)
         if ($id == $id_delete->id) {
 
             $indice = array_search($id_delete, $arrayEmployee);
-            array_splice($arrayEmployee, $indice, 1, "");
+            array_splice($arrayEmployee, $indice, 1, null);
             echo "START HEREEEEEEE";
             print("<pre>" . print_r($arrayEmployee, true) . "</pre>");
 

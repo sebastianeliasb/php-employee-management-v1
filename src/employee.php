@@ -45,8 +45,8 @@ if (!isset($_SESSION['user'])) {
 
     </header>
 
-    <h4 class='title-header'>Employee ( <?php  (isset($employee['name']) ?  print ($employee['name'] . " " . $employee['lastName']) : ""); ?>)</h4>
-   
+    <h4 class='title-header'>Employee <?php (isset($employee['name']) ?  print("(" . $employee['name'] . " " . $employee['lastName'] . ")") : ""); ?></h4>
+
 
     <form method="post" action="./library/employeeController.php<?php (isset($employee) ? print("?id=" . $_GET['id']) : ""); ?>" id="employeeForm" class="p-5">
         <div class="d-flex mt-3">
@@ -91,18 +91,18 @@ if (!isset($_SESSION['user'])) {
             <label for="phone" class="mx-2 employeeLabels">Phone Number</label>
             <input type="text" id="phone" name="phone" class="form-control" value="<?php (isset($employee) ? print($employee['phoneNumber']) : print('')); ?>" required>
         </div>
-        
-            <input type="submit" class="btn btn-primary mt-5" value="SUBMIT" id="submitEmployee" name="<?php (isset($_GET['id']) ? print('submitEmployee') : print('newEmployee')) ?>">
-            <button type="button" class="btn btn-secondary mt-5" id="returnEmployees">RETURN</button>
-        
+
+        <input type="submit" class="btn btn-primary mt-5" value="SUBMIT" id="submitEmployee" name="<?php (isset($_GET['id']) ? print('submitEmployee') : print('newEmployee')) ?>">
+        <button type="button" class="btn btn-secondary mt-5" id="returnEmployees">RETURN</button>
+
     </form>
 
     <script src="../assets/js/index.js"></script>
     <?php
     require_once("../assets/html/footer.html");
-        //Table title init
-        echo "</footer>";
-        ?>
+    //Table title init
+    echo "</footer>";
+    ?>
 </body>
 
 </html>

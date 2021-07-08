@@ -92,22 +92,19 @@ if (!isset($_SESSION['user'])) {
             </div>";
         ?>
         <script>
-            $(".delete-employee").click(function() {
+            $(".delete-employee").click(function(e) {
 
-                var row_id = $(this).data('id');
+                var row_id = $(e.target).data('id');
                 console.log(row_id)
-                $(this).closest('.row-employee-data').remove();
+                $(e.target).closest('.row-employee-data').remove();
 
                 $.ajax({
-                    type: "POST",
-                    url: "../src/library/employeeController.php",
-                    data: {
-                        row_id: row_id
-                    },
-                    dataType: "html",
+                    type: "DELETE",
+                    url: "../src/library/employeeController.php?row_id=" + row_id,
                     async: true,
                     success: function(data) {
                         alert("all ok");
+                        console.table(data);
                     },
                     error: function() {
                         alert("data not found");

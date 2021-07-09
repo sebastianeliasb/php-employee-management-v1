@@ -304,3 +304,14 @@ input[type="text"]:placeholder {
 #icon {
   width: 60%;
 }
+/* Login Information  */
+
+.infoLogin {
+  height: 50px;
+  width: 250px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 15px;
+  background-color: #d34f4d;
+  border-radius: 7px;
+}

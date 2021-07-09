@@ -15,7 +15,10 @@ function login($data)
                 $_SESSION['user'] = $user['name'];
                 $_SESSION['user_login_time'] = time(); 
                 header('Location: ../dashboard.php');
-            }
+            } else {
+                $_SESSION["loginError"] = "Wrong email or password";
+                header("Location: ../../index.php");
+} 
         }
     );
 }

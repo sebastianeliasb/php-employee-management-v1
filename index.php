@@ -1,10 +1,10 @@
 <!-- TODO Application entry point. Login view -->
 
-<!-- <?php
-        // session_start();
+ <?php
+    session_start();
 
 
-        ?> -->
+        ?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +28,6 @@
             <!-- Icon -->
             <div class="fadeIn first">
                 <img src="./assets/img/assembler.png" id="icon" alt="User Icon" />
-                <!-- <?php include "./src/library/loginManager.php"; ?> -->
             </div>
 
             <!-- Login Form -->
@@ -37,7 +36,12 @@
                 <input type="password" value="" id="password" class="fadeIn third" name="pass" placeholder="Password" required>
                 <input type="submit" class="fadeIn fourth" value="Log In">
             </form>
-
+            <!-- <div class="infoLogin">
+                <?php
+                if(isset($_SESSION["loginError"])) $infoLogin = $_SESSION["loginError"];
+                echo $infoLogin;
+                 ?>
+            </div> -->
             <!-- Remind Passowrd -->
             <div id="formFooter">
                 <a class="underlineHover" href="#">Forgot Password?</a>

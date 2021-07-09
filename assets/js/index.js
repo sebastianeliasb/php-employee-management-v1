@@ -2,6 +2,19 @@ const infoRow = $(".info-row");
 const addNewEmployee = $(".new-employee");
 const employeeInfo = $(".employee-info");
 
+// Header dynamic format
+let path = $(location).attr("pathname").split("/");
+path = path[path.length - 1];
+$(function () {
+  if (path == "dashboard.php") {
+    $("#navDashboard").addClass("active");
+    $("#navDashboard").html("Dashboard<span class='sr-only'>(current)</span>");
+  } else {
+    $("#navEmployee").addClass("active");
+    $("#navEmployee").html("Employee<span class='sr-only'>(current)</span>");
+  }
+});
+
 // List -> New employee -> Show input fields
 $("body").on("click", ".new-employee", function () {
   if ($("input").length <= 0) {
@@ -14,7 +27,7 @@ $("body").on("click", ".new-employee", function () {
 // List -> New employee -> Submit
 $("body").on("click", "#new_submit", function (e) {
   const postData = {
-    id: $("tr").length - 1,
+    id: Math.floor(Math.random() * 26) + Date.now(),
     name: $("#name").val(),
     lastName: $("#lastName").val(),
     email: $("#email").val(),
@@ -54,25 +67,27 @@ $("body").on("click", ".modifyList", function (e) {
     id +
     "' value='+'></td>";
 
-  parentRow.html(newContent);
-  let employeesRequest = $.ajax({
-    type: "GET",
-    url: "../resources/employees.json",
-  });
-
-  employeesRequest.done(function (data, status) {
-    const filteredData = data.filter(function (employee) {
-      if (employee["id"] == id) {
-        return employee;
-      }
+  if ($("input").length <= 0) {
+    parentRow.html(newContent);
+    let employeesRequest = $.ajax({
+      type: "GET",
+      url: "../resources/employees.json",
     });
 
-    $("#editingName").val(filteredData[0]["name"]);
-    $("#editingLastName").val(filteredData[0]["lastName"]);
-    $("#editingAge").val(filteredData[0]["age"]);
-    $("#editingEmail").val(filteredData[0]["email"]);
-    $("#editingPhoneNumber").val(filteredData[0]["phoneNumber"]);
-  });
+    employeesRequest.done(function (data, status) {
+      const filteredData = data.filter(function (employee) {
+        if (employee["id"] == id) {
+          return employee;
+        }
+      });
+
+      $("#editingName").val(filteredData[0]["name"]);
+      $("#editingLastName").val(filteredData[0]["lastName"]);
+      $("#editingAge").val(filteredData[0]["age"]);
+      $("#editingEmail").val(filteredData[0]["email"]);
+      $("#editingPhoneNumber").val(filteredData[0]["phoneNumber"]);
+    });
+  }
 });
 
 // List -> Editing employees -> Submit
@@ -136,6 +151,7 @@ $("#returnEmployees").on("click", () => {
   location.replace("../src/dashboard.php");
 });
 
+// Log out timer
 function checkUserTime() {
   $.ajax({
     url: "../src/library/loginController.php",

@@ -48,8 +48,12 @@ In this lovely project we have worked with those technologies:
 
 If you have any problem running those project, or any question you can contact us:
 
-Sebastian
+Sebastian Elias Brupbacher
+sebastian.eliasb@gmail.com
 
-Jordi
+Jordi Arnau
+aejordi@gmail.com
 
-Jordi
+
+Einar Sanchez Reynoso
+grelsare13@gmail.com

@@ -28,36 +28,50 @@ $("body").on("click", ".new-employee", function () {
 
 // List -> New employee -> Submit
 $("body").on("click", "#new_submit", function (e) {
-  const postData = {
-    id: Math.floor(Math.random() * 26) + Date.now(),
-    name: $("#name").val(),
-    lastName: $("#lastName").val(),
-    email: $("#email").val(),
-    gender: "",
-    age: $("#age").val(),
-    streetAddress: "",
-    city: "",
-    state: "",
-    postalCode: "",
-    phoneNumber: $("#phoneNumber").val(),
-  };
-
-  $.post(
-    "../src/library/employeeController.php",
-    postData,
-    function (response) {
-      console.log(response);
+  const inputArr = ["#name", "#lastName", "#age", "#email", "#phoneNumber"];
+  let empty = 0;
+  inputArr.forEach(function (input) {
+    if ($(input).val() != false) {
+      empty += 1;
     }
-  );
-  e.preventDefault();
-  let employeesRequest = $.ajax({
-    type: "GET",
-    url: "./dashboard.php",
   });
 
-  employeesRequest.done(function (data, status) {
-    $("tbody").html($(data).find("tbody").html());
-  });
+  if (empty == 5) {
+    const postData = {
+      id: Math.floor(Math.random() * 26) + Date.now(),
+      name: $("#name").val(),
+      lastName: $("#lastName").val(),
+      email: $("#email").val(),
+      gender: "",
+      age: $("#age").val(),
+      streetAddress: "",
+      city: "",
+      state: "",
+      postalCode: "",
+      phoneNumber: $("#phoneNumber").val(),
+    };
+
+    $.post(
+      "../src/library/employeeController.php",
+      postData,
+      function (response) {}
+    );
+    e.preventDefault();
+    let employeesRequest = $.ajax({
+      type: "GET",
+      url: "./dashboard.php",
+    });
+
+    employeesRequest.done(function (data, status) {
+      $("tbody").html($(data).find("tbody").html());
+    });
+  } else {
+    swal(
+      "There are empty fields!",
+      "Please fill all the employee data",
+      "warning"
+    );
+  }
 });
 
 // List -> Editing employee -> Show inputs and their values
@@ -146,7 +160,6 @@ $("body").on("click", "#editSubmit", function (e) {
 // List -> Delete employee
 $("body").on("click", ".delete-employee", function (e) {
   var row_id = $(e.target).parent().data("id");
-  console.log(row_id);
   $(e.target).closest(".row-employee-data").remove();
 
   $.ajax({
@@ -155,7 +168,6 @@ $("body").on("click", ".delete-employee", function (e) {
     async: true,
     success: function (data) {
       swal("Task made!", "This employee has been eliminated!", "success");
-      console.table(data);
     },
     error: function () {
       swal(

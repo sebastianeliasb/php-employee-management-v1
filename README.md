@@ -22,23 +22,23 @@
 
 ### ¿How to?
 
--Log in with an admin user. 
--Once inside and with ONE CLICK, we can add, delete and create into the table data.
--Furthermore and with DOUBLE CLICK, if we execute it into a data row employeee, we can modify this data.
+- Log in with an admin user. 
+- Once inside and with ONE CLICK, we can add, delete and create into the table data.
+- Furthermore and with DOUBLE CLICK, if we execute it into a data row employeee, we can modify this data.
 
 
 
 
 ### About this project.
 In this lovely project we have worked with those technologies:
--PHP
--Ajax
--JQuery
--Javascript
--Html
--Css
--Bootstrap
--node (npm)
+- PHP
+- Ajax
+- JQuery
+- Javascript
+- Html
+- Css
+- Bootstrap
+- node (npm)
 
 ### About us
 

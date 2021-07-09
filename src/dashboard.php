@@ -25,6 +25,7 @@ if (!isset($_SESSION['user'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <title>Employee Dashboard</title>
@@ -103,11 +104,11 @@ if (!isset($_SESSION['user'])) {
                     url: "../src/library/employeeController.php?row_id=" + row_id,
                     async: true,
                     success: function(data) {
-                        alert("all ok");
+                        swal("Task made!", "This employee has been eliminated!", "success");
                         console.table(data);
                     },
                     error: function() {
-                        alert("data not found");
+                        swal("Ups! Something went wrong!", "Contact with the page administrator.", "warning");
                     }
                 });
 

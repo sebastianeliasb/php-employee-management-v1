@@ -1,3 +1,5 @@
+/** @format */
+
 const infoRow = $(".info-row");
 const addNewEmployee = $(".new-employee");
 const employeeInfo = $(".employee-info");

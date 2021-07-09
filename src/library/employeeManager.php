@@ -50,20 +50,14 @@ function deleteEmployee($id)
     // Converts original Json file into Array
     $arrayEmployee = json_decode($getDataJson);
 
-    //print_r($arrayEmployee);
-
     // Bring out data from the Array
     foreach ($arrayEmployee as $id_delete) {
         if ($id == $id_delete->id) {
 
             $indice = array_search($id_delete, $arrayEmployee);
             array_splice($arrayEmployee, $indice, 1, null);
-            echo "START HEREEEEEEE";
-            print("<pre>" . print_r($arrayEmployee, true) . "</pre>");
 
             break;
-        } else {
-            echo "-->error here    ";
         }
     }
     //read json file
@@ -74,13 +68,7 @@ function deleteEmployee($id)
         fwrite($file, $jsontoDelete);
         fclose($file);
     }
-
-    // file_put_contents('../../resources/employees.json', $jsontoDelete);
-    echo "RESPONSE FINAL ------------------------------------------_>>>>>";
-    print("<pre>" . print_r($arrayEmployee, true) . "</pre>");
 }
-
-
 
 function updateEmployee($updateEmployee, $data)
 {
@@ -105,25 +93,6 @@ function updateEmployee($updateEmployee, $data)
 }
 
 
-function getEmployee(string $id)
+function newListEmployee()
 {
-    // TODO implement it
 }
-
-
-function removeAvatar($id)
-{
-    // TODO implement it
-}
-
-/* function getQueryStringParameters(): array
-{
-    // TODO implement it
-}
-} */
-
-/* function getNextIdentifier(array $employeesCollection): int
-{
-    // TODO implement it
-}
- */

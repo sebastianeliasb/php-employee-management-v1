@@ -13,7 +13,7 @@ if (isset($_POST['name'])) {
 
     // Converts original Json file into Array
     $decodedoldJson = json_decode($oldJson);
-    $id = count($decodedoldJson) + 1;
+    $id = uniqid();
 
     // Contains new array of data
     $newJson = array($_POST);
@@ -27,7 +27,6 @@ if (isset($_POST['name'])) {
     if (!$encodedJson) {
         die("Query Failed.");
     }
-    echo "Employee Added Successfully";
 }
 
 require_once './employeeManager.php';
@@ -55,9 +54,6 @@ switch ($_SERVER["REQUEST_METHOD"]) {
         $resultArr = json_decode(json_encode($result), true);
 
         updateEmployee($resultArr, $data);
-}
-
-switch ($_SERVER["REQUEST_METHOD"]) {
 
     case "DELETE":
 

@@ -143,6 +143,30 @@ $("body").on("click", "#editSubmit", function (e) {
   });
 });
 
+// List -> Delete employee
+$("body").on("click", ".delete-employee", function (e) {
+  var row_id = $(e.target).parent().data("id");
+  console.log(row_id);
+  $(e.target).closest(".row-employee-data").remove();
+
+  $.ajax({
+    type: "DELETE",
+    url: "../src/library/employeeController.php?row_id=" + row_id,
+    async: true,
+    success: function (data) {
+      swal("Task made!", "This employee has been eliminated!", "success");
+      console.table(data);
+    },
+    error: function () {
+      swal(
+        "Ups! Something went wrong!",
+        "Contact with the page administrator.",
+        "warning"
+      );
+    },
+  });
+});
+
 // List -> Open employee on form
 $("body").on("dblclick", ".toForm", function (e) {
   location.replace("../src/employee.php?id=" + $(e.target).data("id"));
@@ -167,4 +191,4 @@ function checkUserTime() {
 }
 setInterval(function () {
   checkUserTime();
-}, 2000);
+}, 10000);

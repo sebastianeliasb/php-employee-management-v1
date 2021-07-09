@@ -92,29 +92,6 @@ if (!isset($_SESSION['user'])) {
             </table>
             </div>";
         ?>
-        <script>
-            $("body").on("click", ".delete-employee", function(e) {
-
-                var row_id = $(e.target).parent().data('id');
-                console.log(row_id)
-                $(e.target).closest('.row-employee-data').remove();
-
-                $.ajax({
-                    type: "DELETE",
-                    url: "../src/library/employeeController.php?row_id=" + row_id,
-                    async: true,
-                    success: function(data) {
-                        swal("Task made!", "This employee has been eliminated!", "success");
-                        console.table(data);
-                    },
-                    error: function() {
-                        swal("Ups! Something went wrong!", "Contact with the page administrator.", "warning");
-                    }
-                });
-
-
-            });
-        </script>
         <footer>
             <?php
             require_once("../assets/html/footer.html");

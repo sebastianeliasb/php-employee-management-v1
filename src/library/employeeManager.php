@@ -11,7 +11,7 @@ function getFormData($data)
 {
     $formData =
         [
-            'id' => uniqid(),
+            'id' => (isset($_GET['id']) ? $_GET['id'] : uniqid()),
             'name' => $_POST['formName'],
             'lastName' => $_POST['lastName'],
             'email' => $_POST['email'],
